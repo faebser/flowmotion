@@ -70,6 +70,7 @@ void Point::calculateAddedPoint() {
 void Point::newTarget(float x, float y) {
 	target.x = x;
 	target.y = y;
+	cout << "update auf punkt: " << id << endl;
 	gotUpdate = true;
 }
 

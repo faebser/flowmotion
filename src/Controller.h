@@ -24,8 +24,11 @@ public:
 	bool pointExists(int id);
 	void getBlobs(vector <ofxCvBlob> inputBlobs);
 private:
+	static const int updateLimit = 15;
 	vector <Point> points;
 	vector <ofxCvBlob> blobs;
 };
+
+
 
 #endif /* CONTROLLER_H_ */

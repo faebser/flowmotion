@@ -1,5 +1,46 @@
 obj/i686Release/src/flowmotion.d obj/i686Release/src/flowmotion.o: \
  src/flowmotion.cpp src/flowmotion.h \
+ ../../../addons/ofxOpenCv/src/ofxOpenCv.h \
+ ../../../addons/ofxOpenCv/src/ofxCvConstants.h \
+ ../../../addons/ofxOpenCv/libs/opencv/include/opencv/cv.h \
+ ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/core/core_c.h \
+ ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/core/types_c.h \
+ ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/core/core.hpp \
+ ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/core/version.hpp \
+ ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/core/operations.hpp \
+ ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/core/mat.hpp \
+ ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/imgproc/imgproc_c.h \
+ ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/imgproc/types_c.h \
+ ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/imgproc/imgproc.hpp \
+ ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/video/tracking.hpp \
+ ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/features2d/features2d.hpp \
+ ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/flann.hpp \
+ ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/flann_base.hpp \
+ ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/general.h \
+ ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/object_factory.h \
+ ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/matrix.h \
+ ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/result_set.h \
+ ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/dist.h \
+ ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/index_testing.h \
+ ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/nn_index.h \
+ ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/logger.h \
+ ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/timer.h \
+ ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/saving.h \
+ ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/all_indices.h \
+ ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/kdtree_index.h \
+ ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/heap.h \
+ ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/allocator.h \
+ ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/random.h \
+ ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/kmeans_index.h \
+ ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/composite_index.h \
+ ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/linear_index.h \
+ ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/autotuned_index.h \
+ ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/ground_truth.h \
+ ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/sampling.h \
+ ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/calib3d/calib3d.hpp \
+ ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/objdetect/objdetect.hpp \
+ ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/legacy/compat.hpp \
+ ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/core/internal.hpp \
  ../../../libs/openFrameworks/ofMain.h \
  ../../../libs/openFrameworks/utils/ofConstants.h \
  ../../../libs/glew/include/GL/glew.h \
@@ -243,9 +284,116 @@ obj/i686Release/src/flowmotion.d obj/i686Release/src/flowmotion.o: \
  ../../../libs/openFrameworks/3d/ofNode.h \
  ../../../libs/openFrameworks/3d/ofCamera.h \
  ../../../libs/openFrameworks/3d/ofEasyCam.h \
- ../../../libs/openFrameworks/gl/ofLight.h src/Controller.h src/Point.h
+ ../../../libs/openFrameworks/gl/ofLight.h \
+ ../../../addons/ofxOpenCv/src/ofxCvImage.h \
+ ../../../addons/ofxOpenCv/src/ofxCvGrayscaleImage.h \
+ ../../../addons/ofxOpenCv/src/ofxCvBlob.h \
+ ../../../addons/ofxOpenCv/src/ofxCvColorImage.h \
+ ../../../addons/ofxOpenCv/src/ofxCvFloatImage.h \
+ ../../../addons/ofxOpenCv/src/ofxCvShortImage.h \
+ ../../../addons/ofxOpenCv/src/ofxCvContourFinder.h \
+ ../../../addons/ofxOpenCv/src/ofxCvHaarFinder.h \
+ ../../../addons/ofxKinect/src/ofxKinect.h \
+ ../../../addons/ofxKinect/src/ofxBase3DVideo.h \
+ ../../../addons/ofxThread/src/ofxThread.h \
+ ../../../addons/ofxKinect/libs/libusb/osx/include/libusb-1.0/libusb.h \
+ ../../../addons/ofxKinect/libs/libfreenect/libfreenect.h \
+ ../../../addons/ofxKinect/libs/libusb/osx/include/libusb-1.0/libusb.h \
+ ../../../addons/ofxKinect/src/ofxKinectCalibration.h \
+ ../../../addons/ofxVectorMath/src/ofxVectorMath.h \
+ ../../../addons/ofxVectorMath/src/ofxVec2f.h \
+ ../../../addons/ofxVectorMath/src/ofxVec3f.h \
+ ../../../addons/ofxVectorMath/src/ofxVec4f.h \
+ ../../../addons/ofxVectorMath/src/ofxMatrix3x3.h \
+ ../../../addons/ofxVectorMath/src/ofxMatrix4x4.h \
+ ../../../addons/ofxVectorMath/src/ofxQuaternion.h \
+ ../../../addons/ofxKinect/src/ofxKinectPlayer.h \
+ ../../../addons/ofxKinect/src/ofxKinectRecorder.h src/Controller.h \
+ src/Point.h
 
 src/flowmotion.h:
+
+../../../addons/ofxOpenCv/src/ofxOpenCv.h:
+
+../../../addons/ofxOpenCv/src/ofxCvConstants.h:
+
+../../../addons/ofxOpenCv/libs/opencv/include/opencv/cv.h:
+
+../../../addons/ofxOpenCv/libs/opencv/include/opencv2/core/core_c.h:
+
+../../../addons/ofxOpenCv/libs/opencv/include/opencv2/core/types_c.h:
+
+../../../addons/ofxOpenCv/libs/opencv/include/opencv2/core/core.hpp:
+
+../../../addons/ofxOpenCv/libs/opencv/include/opencv2/core/version.hpp:
+
+../../../addons/ofxOpenCv/libs/opencv/include/opencv2/core/operations.hpp:
+
+../../../addons/ofxOpenCv/libs/opencv/include/opencv2/core/mat.hpp:
+
+../../../addons/ofxOpenCv/libs/opencv/include/opencv2/imgproc/imgproc_c.h:
+
+../../../addons/ofxOpenCv/libs/opencv/include/opencv2/imgproc/types_c.h:
+
+../../../addons/ofxOpenCv/libs/opencv/include/opencv2/imgproc/imgproc.hpp:
+
+../../../addons/ofxOpenCv/libs/opencv/include/opencv2/video/tracking.hpp:
+
+../../../addons/ofxOpenCv/libs/opencv/include/opencv2/features2d/features2d.hpp:
+
+../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/flann.hpp:
+
+../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/flann_base.hpp:
+
+../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/general.h:
+
+../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/object_factory.h:
+
+../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/matrix.h:
+
+../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/result_set.h:
+
+../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/dist.h:
+
+../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/index_testing.h:
+
+../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/nn_index.h:
+
+../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/logger.h:
+
+../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/timer.h:
+
+../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/saving.h:
+
+../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/all_indices.h:
+
+../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/kdtree_index.h:
+
+../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/heap.h:
+
+../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/allocator.h:
+
+../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/random.h:
+
+../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/kmeans_index.h:
+
+../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/composite_index.h:
+
+../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/linear_index.h:
+
+../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/autotuned_index.h:
+
+../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/ground_truth.h:
+
+../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/sampling.h:
+
+../../../addons/ofxOpenCv/libs/opencv/include/opencv2/calib3d/calib3d.hpp:
+
+../../../addons/ofxOpenCv/libs/opencv/include/opencv2/objdetect/objdetect.hpp:
+
+../../../addons/ofxOpenCv/libs/opencv/include/opencv2/legacy/compat.hpp:
+
+../../../addons/ofxOpenCv/libs/opencv/include/opencv2/core/internal.hpp:
 
 ../../../libs/openFrameworks/ofMain.h:
 
@@ -774,6 +922,54 @@ src/flowmotion.h:
 ../../../libs/openFrameworks/3d/ofEasyCam.h:
 
 ../../../libs/openFrameworks/gl/ofLight.h:
+
+../../../addons/ofxOpenCv/src/ofxCvImage.h:
+
+../../../addons/ofxOpenCv/src/ofxCvGrayscaleImage.h:
+
+../../../addons/ofxOpenCv/src/ofxCvBlob.h:
+
+../../../addons/ofxOpenCv/src/ofxCvColorImage.h:
+
+../../../addons/ofxOpenCv/src/ofxCvFloatImage.h:
+
+../../../addons/ofxOpenCv/src/ofxCvShortImage.h:
+
+../../../addons/ofxOpenCv/src/ofxCvContourFinder.h:
+
+../../../addons/ofxOpenCv/src/ofxCvHaarFinder.h:
+
+../../../addons/ofxKinect/src/ofxKinect.h:
+
+../../../addons/ofxKinect/src/ofxBase3DVideo.h:
+
+../../../addons/ofxThread/src/ofxThread.h:
+
+../../../addons/ofxKinect/libs/libusb/osx/include/libusb-1.0/libusb.h:
+
+../../../addons/ofxKinect/libs/libfreenect/libfreenect.h:
+
+../../../addons/ofxKinect/libs/libusb/osx/include/libusb-1.0/libusb.h:
+
+../../../addons/ofxKinect/src/ofxKinectCalibration.h:
+
+../../../addons/ofxVectorMath/src/ofxVectorMath.h:
+
+../../../addons/ofxVectorMath/src/ofxVec2f.h:
+
+../../../addons/ofxVectorMath/src/ofxVec3f.h:
+
+../../../addons/ofxVectorMath/src/ofxVec4f.h:
+
+../../../addons/ofxVectorMath/src/ofxMatrix3x3.h:
+
+../../../addons/ofxVectorMath/src/ofxMatrix4x4.h:
+
+../../../addons/ofxVectorMath/src/ofxQuaternion.h:
+
+../../../addons/ofxKinect/src/ofxKinectPlayer.h:
+
+../../../addons/ofxKinect/src/ofxKinectRecorder.h:
 
 src/Controller.h:
 

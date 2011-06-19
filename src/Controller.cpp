@@ -7,13 +7,23 @@
 
 #include "Controller.h"
 
+
+
 Controller::Controller() {
 	// TODO Auto-generated constructor stub
+
 }
 
 void Controller::update() {
 	for(unsigned int i = 0;i < points.size(); i++) {
 		points[i].update();
+	}
+
+	vector<Point>::iterator it;
+	for(it = points.begin(); it < points.end(); it++ ) {
+		if( (*it).gotUpdates() > updateLimit) {
+			points.erase(it);
+		}
 	}
 }
 

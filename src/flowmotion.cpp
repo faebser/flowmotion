@@ -19,8 +19,8 @@ void testApp::setup(){
 	grayThreshNear.allocate(kinect.width, kinect.height);
 	grayThreshFar.allocate(kinect.width, kinect.height);
 
-	nearThreshold = 230;
-	farThreshold  = 70;
+	nearThreshold = 255;
+	farThreshold  = 125;
 	bThreshWithOpenCV = true;
 
 	ofSetFrameRate(60);
@@ -41,35 +41,35 @@ void testApp::setup(){
 void testApp::update(){
 	kinectSource->update();
 
-		// there is a new frame and we are connected
-		if(kinectSource->isFrameNew()) {
+	// there is a new frame and we are connected
+	if(kinectSource->isFrameNew()) {
 
-			// record ?
-			if(bRecord && kinectRecorder.isOpened()) {
-				kinectRecorder.newFrame(kinect.getRawDepthPixels(), kinect.getPixels());
-			}
-
-			// load grayscale depth image from the kinect source
-			grayImage.setFromPixels(kinectSource->getDepthPixels(), kinect.width, kinect.height);
-
-			// we do two thresholds - one for the far plane and one for the near plane
-			// we then do a cvAnd to get the pixels which are a union of the two thresholds
-				grayThreshNear = grayImage;
-				grayThreshFar = grayImage;
-				grayThreshNear.threshold(nearThreshold, true);
-				grayThreshFar.threshold(farThreshold);
-				cvAnd(grayThreshNear.getCvImage(), grayThreshFar.getCvImage(), grayImage.getCvImage(), NULL);
-
-			// update the cv images
-			grayImage.flagImageChanged();
-
-			// find contours which are between the size of 20 pixels and 1/3 the w*h pixels.
-	    	// also, find holes is set to true so we will get interior contours as well....
-	    	contourFinder.findContours(grayImage, 10, (kinect.width*kinect.height)/2, 20, false);
+		// record ?
+		if(bRecord && kinectRecorder.isOpened()) {
+			kinectRecorder.newFrame(kinect.getRawDepthPixels(), kinect.getPixels());
 		}
 
-		controller.getBlobs(contourFinder.blobs);
-		controller.update();
+		// load grayscale depth image from the kinect source
+		grayImage.setFromPixels(kinectSource->getDepthPixels(), kinect.width, kinect.height);
+
+		// we do two thresholds - one for the far plane and one for the near plane
+		// we then do a cvAnd to get the pixels which are a union of the two thresholds
+		grayThreshNear = grayImage;
+		grayThreshFar = grayImage;
+		grayThreshNear.threshold(nearThreshold, true);
+		grayThreshFar.threshold(farThreshold);
+		cvAnd(grayThreshNear.getCvImage(), grayThreshFar.getCvImage(), grayImage.getCvImage(), NULL);
+
+		// update the cv images
+		grayImage.flagImageChanged();
+
+		// find contours which are between the size of 20 pixels and 1/3 the w*h pixels.
+		// also, find holes is set to true so we will get interior contours as well....
+		contourFinder.findContours(grayImage, 10, (kinect.width*kinect.height)/2, 20, false);
+	}
+
+	controller.getBlobs(contourFinder.blobs);
+	controller.update();
 
 }
 
@@ -89,8 +89,32 @@ void testApp::exit() {
 }
 
 //--------------------------------------------------------------
-void testApp::keyPressed(int key){
+void testApp::keyPressed(int key) {
+	switch (key) {
 
+	case '>':
+	case '.':
+		farThreshold ++;
+		if (farThreshold > 255) farThreshold = 255;
+		break;
+
+	case '<':
+	case ',':
+		farThreshold --;
+		if (farThreshold < 0) farThreshold = 0;
+		break;
+
+	case '+':
+	case '=':
+		nearThreshold ++;
+		if (nearThreshold > 255) nearThreshold = 255;
+		break;
+
+	case '-':
+		nearThreshold --;
+		if (nearThreshold < 0) nearThreshold = 0;
+		break;
+	}
 }
 
 //--------------------------------------------------------------
@@ -129,6 +153,6 @@ void testApp::gotMessage(ofMessage msg){
 }
 
 //--------------------------------------------------------------
-void testApp::dragEvent(ofDragInfo dragInfo){ 
+void testApp::dragEvent(ofDragInfo dragInfo){
 
 }
