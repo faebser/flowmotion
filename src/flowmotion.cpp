@@ -75,10 +75,13 @@ void testApp::update(){
 
 //--------------------------------------------------------------
 void testApp::draw(){
-	controller.draw();
+
 	if(debugOutput) {
-		grayImage.draw(10, 320, 400, 300);
+		grayImage.draw(0, 0, ofGetWidth(), ofGetHeight());
+		contourFinder.draw(0, 0, ofGetWidth(), ofGetHeight());
 	}
+
+	controller.draw();
 }
 
 void testApp::exit() {

@@ -24,7 +24,7 @@ public:
 	bool pointExists(int id);
 	void getBlobs(vector <ofxCvBlob> inputBlobs);
 private:
-	static const int updateLimit = 15;
+	static const int updateLimit = 60;
 	vector <Point> points;
 	vector <ofxCvBlob> blobs;
 };

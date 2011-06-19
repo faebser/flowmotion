@@ -15,6 +15,10 @@ Controller::Controller() {
 }
 
 void Controller::update() {
+	for(unsigned int it = 0; it > blobs.size(); it++) {
+			points[it].newTarget(blobs[it].centroid.x, blobs[it].centroid.y);
+		}
+
 	for(unsigned int i = 0;i < points.size(); i++) {
 		points[i].update();
 	}
@@ -35,10 +39,6 @@ void Controller::getBlobs(vector <ofxCvBlob> inputBlobs) {
 		for(int i = blobs.size() - points.size(); i >= 0; i--) {
 			addPoint(blobs.size()-i, blobs[blobs.size()-i].centroid);
 		}
-	}
-
-	for(unsigned int it = 0; it > blobs.size(); it++) {
-		points[it].newTarget(blobs[it].centroid.x, blobs[it].centroid.y);
 	}
 }
 
