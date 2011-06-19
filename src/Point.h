@@ -19,10 +19,13 @@ public:
 	void update();
 	void draw();
 	int getId();
+	int gotUpdates();
+	float x, y;
 	void newTarget(float x, float y);
 private:
 	ofVec2f position,target, addedPoint, addedPointTarget;
-	int id;
+	int id, notUpdated;
+	bool gotUpdate;
 	float speed,size, addedPointSpeed, addedPointSize, maxDistance;
 	void calculateAddedPoint();
 };

@@ -5,7 +5,8 @@
  *      Author: faebser
  */
 #include "Point.h"
-//#include "UdpController.h"
+#include "ofxOpenCv.h"
+#include "ofxKinect.h"
 
 
 #ifndef CONTROLLER_H_
@@ -18,12 +19,13 @@ public:
 	void setup();
 	void update();
 	void draw();
-	void addPoint(int id);
+	void addPoint(int id, ofPoint pos);
 	void removePoint(int id);
 	bool pointExists(int id);
+	void getBlobs(vector <ofxCvBlob> inputBlobs);
 private:
 	vector <Point> points;
-	//UdpController udp;
+	vector <ofxCvBlob> blobs;
 };
 
 #endif /* CONTROLLER_H_ */

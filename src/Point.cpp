@@ -34,6 +34,12 @@ Point::Point(int x, int y, int size, int id) {
 	addedPointSize = 2;
 	target.x = 0;
 	target.y = 0;
+
+	this->x = position.x;
+	this->y = position.y;
+
+	gotUpdate = false;
+	notUpdated = 0;
 }
 
 int Point::getId() {
@@ -49,6 +55,10 @@ void Point::draw() {
 	ofCircle(addedPoint.x, addedPoint.y, addedPointSize);
 }
 
+int Point::gotUpdates() {
+	return notUpdated;
+}
+
 void Point::setup() {
 
 }
@@ -60,11 +70,20 @@ void Point::calculateAddedPoint() {
 void Point::newTarget(float x, float y) {
 	target.x = x;
 	target.y = y;
+	gotUpdate = true;
 }
 
 void Point::update() {
 	position += (target - position) * speed;
 	calculateAddedPoint();
+	x = position.x;
+	y = position.y;
+	if(gotUpdate) {
+		gotUpdate = false;
+	} else {
+		gotUpdate = false;
+		notUpdated++;
+	}
 }
 
 Point::~Point() {
