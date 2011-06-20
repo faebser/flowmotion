@@ -2,8 +2,9 @@
 
 //--------------------------------------------------------------
 void testApp::setup(){
+	ofEnableAlphaBlending();
+
 	debugOutput = true;
-	ofBackground(0,0,0);
 	controller.setup();
 	kinect.init(false,false);
 	//kinect.init(true);  // shows infrared instead of RGB video image
@@ -39,6 +40,7 @@ void testApp::setup(){
 
 //--------------------------------------------------------------
 void testApp::update(){
+
 	kinectSource->update();
 
 	// there is a new frame and we are connected
@@ -82,13 +84,20 @@ void testApp::draw(){
 	}
 
 	controller.draw();
+
+	ofSetColor(0,0,0,5);
+	ofRect(0,0,ofGetWidth(), ofGetHeight());
+
 }
 
 void testApp::exit() {
+	ofDisableAlphaBlending();
 	kinect.setCameraTiltAngle(0); // zero the tilt on exit
 	kinect.close();
 	kinectPlayer.close();
 	kinectRecorder.close();
+
+
 }
 
 //--------------------------------------------------------------
@@ -116,6 +125,20 @@ void testApp::keyPressed(int key) {
 	case '-':
 		nearThreshold --;
 		if (nearThreshold < 0) nearThreshold = 0;
+		break;
+	case 'd':
+		debugOutput = !debugOutput;
+		break;
+	case OF_KEY_UP:
+		angle++;
+		if(angle>30) angle=30;
+		kinect.setCameraTiltAngle(angle);
+		break;
+
+	case OF_KEY_DOWN:
+		angle--;
+		if(angle<-30) angle=-30;
+		kinect.setCameraTiltAngle(angle);
 		break;
 	}
 }

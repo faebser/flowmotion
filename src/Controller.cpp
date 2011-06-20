@@ -15,7 +15,7 @@ Controller::Controller() {
 }
 
 void Controller::update() {
-	for(unsigned int it = 0; it > blobs.size(); it++) {
+	for(unsigned int it = 0; it < blobs.size(); it++) {
 			points[it].newTarget(blobs[it].centroid.x, blobs[it].centroid.y);
 		}
 
@@ -55,7 +55,7 @@ void Controller::setup() {
 
 void Controller::addPoint(int id , ofPoint pos) {
 	Point tempPoint(pos.x, pos.y,10,id );
-	tempPoint.newTarget( pos.x, pos.y );
+	//tempPoint.newTarget( pos.x, pos.y );
 	points.push_back(tempPoint);
 }
 
