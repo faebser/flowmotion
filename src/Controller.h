@@ -19,14 +19,17 @@ public:
 	void setup();
 	void update();
 	void draw();
+	void drawDebug();
 	void addPoint(int id, ofPoint pos);
 	void removePoint(int id);
 	bool pointExists(int id);
 	void getBlobs(vector <ofxCvBlob> inputBlobs);
 private:
 	static const int updateLimit = 60;
+	static const float farDistance = 60;
 	vector <Point> points;
 	vector <ofxCvBlob> blobs;
+
 };
 
 

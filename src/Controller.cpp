@@ -16,11 +16,42 @@ Controller::Controller() {
 
 void Controller::update() {
 	for(unsigned int it = 0; it < blobs.size(); it++) {
-			points[it].newTarget(blobs[it].centroid.x, blobs[it].centroid.y);
-		}
+		points[it].newTarget(blobs[it].centroid.x, blobs[it].centroid.y);
+	}
 
 	for(unsigned int i = 0;i < points.size(); i++) {
 		points[i].update();
+	}
+
+	for(unsigned int i = 0;i < points.size(); i++) {
+		ofVec2f pos = points[i].getPosition();
+		bool check = points[i].getMoveToCenter();
+		if(check) {
+			check = false;
+			for(unsigned int inner = 0;inner < points.size(); inner++) {
+				if(i != inner) {
+					if(ofDist(pos.x, pos.y, points[inner].x, points[inner].y) < farDistance)
+					{
+						points[i].moveToCenter();
+						points[inner].moveToCenter();
+						check = true;
+					}
+				}
+				if(check == false) {
+					points[i].breakFree();
+				}
+			}
+		} else {
+			for(unsigned int inner = 0;inner < points.size(); inner++) {
+				if(i != inner) {
+					if(ofDist(pos.x, pos.y, points[inner].x, points[inner].y) < farDistance)
+					{
+						points[i].moveToCenter();
+						points[inner].moveToCenter();
+					}
+				}
+			}
+		}
 	}
 
 	vector<Point>::iterator it;
@@ -45,6 +76,12 @@ void Controller::getBlobs(vector <ofxCvBlob> inputBlobs) {
 void Controller::draw() {
 	for(unsigned int i = 0;i < points.size(); i++){
 		points[i].draw();
+	}
+}
+
+void Controller::drawDebug() {
+	for(unsigned int i = 0;i < points.size(); i++){
+		points[i].drawDebug();
 	}
 }
 

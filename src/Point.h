@@ -18,15 +18,23 @@ public:
 	void setup();
 	void update();
 	void draw();
+	ofVec2f getPosition();
+	void drawDebug();
 	int getId();
 	int gotUpdates();
 	float x, y;
 	void newTarget(float x, float y);
+	void moveToCenter();
+	bool getMoveToCenter();
+	void breakFree();
+	void setAddedPointSize(float size);
 private:
-	ofVec2f position,target, addedPoint, addedPointTarget;
+	ofVec2f position, target,
+			addedPoint, addedPointTarget,
+			lastPos;
 	int id, notUpdated;
-	bool gotUpdate;
-	float speed,size, addedPointSpeed, addedPointSize, maxDistance;
+	bool gotUpdate, moveToCenterCheck;
+	float speed,size, addedPointSpeed, addedPointSize, addedPointInitalSize, maxDistance, addedPointDistanceToTarget;
 	void calculateAddedPoint();
 };
 

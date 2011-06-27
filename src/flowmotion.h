@@ -23,7 +23,7 @@ public:
 	void windowResized(int w, int h);
 	void dragEvent(ofDragInfo dragInfo);
 	void gotMessage(ofMessage msg);
-	void exit();
+	//void superFastBlur(unsigned char *pix, int w, int h, int radius);
 
 	bool debugOutput;
 
